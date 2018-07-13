@@ -1,0 +1,10 @@
+@keyframes grower {
+  0%{
+    scale: scale(1);
+  }
+  50%{
+    scale: scale(2);
+  }
+  1000%{
+    scale: scale(1);
+  }
