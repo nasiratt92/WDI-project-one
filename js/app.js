@@ -4,6 +4,8 @@ $(() => {
   const $display = $('.squares');
   const $answer = $('#choosen');
 
+  let mustContainValue;
+
 
   function randomUpTo(n) {
     return Math.floor(Math.random()*n);
@@ -33,8 +35,8 @@ $(() => {
   //
   //
   // /////////This section is to make sure the tiles contain the answer value///
-  const pickColorsUntilContains = (colors, n, mustContain) => {
-    const mustContainValue = mustContain(colors);
+  const pickColorsUntilContains = (colors, n, answer) => {
+    mustContainValue = answer(colors);
     $answer.html(mustContainValue);
     let pickedColors = [];
     while(!pickedColors.includes(mustContainValue)) {
@@ -78,10 +80,22 @@ $(() => {
 
   $tiles.on('click',(e)=>{
     const guess = $(e.target).attr('id');
-    if (guess === answer)
-      alert(`this is ${answer} mate`);
-    else alert(`Ha Ha ! Gotcha this is not ${answer} mate try again`);
+
+    if (guess === mustContainValue) {
+      alert(`Well done this is ${mustContainValue}`);
+    } else {
+      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
+    }
   });
+
+
+
+
+
+
+
+
+
 
 
 
