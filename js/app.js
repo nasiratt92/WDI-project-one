@@ -83,6 +83,8 @@ $(() => {
 
     if (guess === mustContainValue) {
       alert(`Well done this is ${mustContainValue}`);
+      $tiles.remove();
+      appendNDivsToDisplay(9);
     } else {
       alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
     }
