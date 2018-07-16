@@ -11,6 +11,9 @@
   border: 5px dashed indigo;
   height: 190px;
   width:190px;
+  border-radius:50%;
+    overflow:hidden;
+    border-radius:10%;
 }
 #purple{
   background: purple;
@@ -21,6 +24,7 @@
   background: green;
 }#tan{
   background: tan;
+
 }
   /* animation:bounce 3s linear infinite; */
 
