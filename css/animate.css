@@ -1,10 +1,20 @@
-@keyframes grower {
-  0%{
-    scale: scale(1);
-  }
-  50%{
-    scale: scale(2);
-  }
-  1000%{
-    scale: scale(1);
-  }
+@keyframes bounce {
+0% { bottom:100%; }
+25% {
+  bottom:0;
+  width:100px;
+  height:100px;
+}
+30% {
+  bottom:0;
+  height:50px;
+  width:110px;
+}
+35% {
+  bottom:0;
+  width:100px;
+  height:100px;
+}
+70% { bottom:100%; }
+100% { bottom:100%; }
+}
