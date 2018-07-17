@@ -5,7 +5,11 @@ $(() => {
   const $answer = $('#choosen');
 
   let mustContainValue;
-
+  let level2;
+  let level3;
+  let displayCard;
+  let level = 1;
+  let $tiles;
 
   function randomUpTo(n) {
     return Math.floor(Math.random()*n);
@@ -69,36 +73,81 @@ $(() => {
   }
   //
   //
-  const level1 = appendNDivsToDisplay(4);
 
-  const $tiles = $('.tile');
+  function createLevel(levelNumber, numberOfSquares) {
+    console.log('createLevel');
+    const level = appendNDivsToDisplay(numberOfSquares);
+    $tiles = $('.tile');
+    console.log($tiles);
+    $tiles.on('click', handleTileClick);
+  }
+
+  // const level1 = appendNDivsToDisplay(4);
+  createLevel(1, 4); // this needs to run at the start
+
+  // let $tiles = $('.tile');
   // const level2 = appendNDivsToDisplay(9);
 
   // const level3 = appendNDivsToDisplay(16);
 
   //this section to get diferent alerts on user selection////
-
-  $tiles.on('click',(e)=>{
+  function handleTileClick(e) {
     const guess = $(e.target).attr('id');
+    console.log('mustContainValue', mustContainValue, guess);
 
     if (guess === mustContainValue) {
-      alert(`Well done this is ${mustContainValue}`);
-      $tiles.remove();
-      appendNDivsToDisplay(9);
+
+      if (level === 1) {
+        alert(`Well done this is ${mustContainValue}`);
+        $tiles.remove();
+        level+=1;
+        createLevel(2, 9);
+      } else if (level === 2) {
+        alert(`Well done this is ${mustContainValue}`);
+        $tiles.remove();
+        level+=1;
+        createLevel(3, 16);
+      } else if (level === 3) {
+        $tiles.remove();
+        $display.append('<h1>You win!</h1>');
+        alert(`You win game complete your time is ${'###'}`);
+
+      }
+
     } else {
       alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
     }
-  });
+  }
 
 
 
-
-
-
-
-
-
-
-
-
+// level2 =
+//    $tiles.on('click',(e)=>{
+//      const guess2 = $(e.target).attr('id');
+//
+//      if (guess2 === mustContainValue) {
+//        alert(`Well done this is ${mustContainValue}`);
+//        $tiles.remove();
+//        appendNDivsToDisplay(16);
+//        level3;
+//      } else {
+//        alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
+//      }
+//    });
+//   }
+  // if (level === 3){
+  //
+  //   level3 =
+  //  $tiles.on('click',(e)=>{
+  //    const guess3 = $(e.target).attr('id');
+  //
+  //    if (guess3 === mustContainValue) {
+  //      alert(`Well done this is ${mustContainValue}`);
+  //      alert('Game complete');
+  //      level3;
+  //    } else {
+  //      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
+  //    }
+  //  });
+  // }
 });
