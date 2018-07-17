@@ -6,6 +6,7 @@ $(() => {
 
   let mustContainValue;
   let level = 1;
+  let wrongGuessTally = 0;
   let $tiles;
 
   const $timer = $('#timer');
@@ -127,13 +128,15 @@ $(() => {
         createLevel(3, 16);
       } else if (level === 3) {
         $tiles.remove();
-        $display.append('<h1>You win!</h1>');
-        alert(`You win game complete your time is ${startTime} seconds`);
+        $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
+        $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
+        // alert(`Congratulations you win game complete \n Your time is ${startTime} seconds \n and guessed wrong ${wrongGuessTally} times`);
         finalTime();
       }
 
     } else {
       alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
+      wrongGuessTally+=1;
     }
   }
 
