@@ -5,11 +5,11 @@ $(() => {
   const $answer = $('#choosen');
 
   let mustContainValue;
-  let level2;
-  let level3;
-  let displayCard;
   let level = 1;
   let $tiles;
+
+  const $timer = $('#timer');
+  let finishTime;
 
   function randomUpTo(n) {
     return Math.floor(Math.random()*n);
@@ -56,6 +56,24 @@ $(() => {
   // // console.log(pickColorsUntilContains(colors, 3, answer));
   //
   //
+  let startTime = 0;
+
+  const timerInterval = setInterval(increaseTimes, 1000);
+
+  function increaseTimes(){
+    startTime+=1;
+    $timer.text(startTime);
+  }
+
+  const finalTime = function(){
+    if (level===3) {
+      console.log('stop!');
+      clearInterval(timerInterval);
+      return startTime;
+    }
+  };
+
+
   //
   // /////////////////////////////////////////////////////////////////////////////
   function appendNDivsToDisplay(n) {
@@ -93,7 +111,7 @@ $(() => {
   //this section to get diferent alerts on user selection////
   function handleTileClick(e) {
     const guess = $(e.target).attr('id');
-    console.log('mustContainValue', mustContainValue, guess);
+    // console.log('mustContainValue', mustContainValue, guess);
 
     if (guess === mustContainValue) {
 
@@ -110,15 +128,14 @@ $(() => {
       } else if (level === 3) {
         $tiles.remove();
         $display.append('<h1>You win!</h1>');
-        alert(`You win game complete your time is ${'###'}`);
-
+        alert(`You win game complete your time is ${startTime} seconds`);
+        finalTime();
       }
 
     } else {
       alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
     }
   }
-
 
 
 // level2 =
