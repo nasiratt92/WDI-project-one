@@ -1,6 +1,6 @@
 $(() => {
   const colors = ['tan', 'teal', 'coral', 'peru', 'tomato', 'honeydew', 'sienna',
-    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue', 'goldenrod','peachpuff', 'papayawhip', 'moccasin' ];
+    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue', 'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
 
