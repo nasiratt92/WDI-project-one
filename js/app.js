@@ -20,7 +20,6 @@ $(() => {
     const answerIndex = randomUpTo(colors.length);
     const answerColor = colors[answerIndex];
     return answerColor;
-  // answerColor.('#choosen').text();
   };
   //
   //
@@ -54,7 +53,7 @@ $(() => {
 
   };
   // ///////////////////////////////////////////////////////////////////////////////////
-  // // console.log(pickColorsUntilContains(colors, 3, answer));
+  //This section is to create a timer for the overall gameplay which is used
   //
   //
   let startTime = 0;
@@ -101,18 +100,12 @@ $(() => {
     $tiles.on('click', handleTileClick);
   }
 
-  // const level1 = appendNDivsToDisplay(4);
   createLevel(1, 4); // this needs to run at the start
 
-  // let $tiles = $('.tile');
-  // const level2 = appendNDivsToDisplay(9);
 
-  // const level3 = appendNDivsToDisplay(16);
-
-  //this section to get diferent alerts on user selection////
+  //this section to get diferent alerts and level change on user selection////
   function handleTileClick(e) {
     const guess = $(e.target).attr('id');
-    // console.log('mustContainValue', mustContainValue, guess);
 
     if (guess === mustContainValue) {
 
@@ -130,7 +123,7 @@ $(() => {
         $tiles.remove();
         $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
         $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
-        // alert(`Congratulations you win game complete \n Your time is ${startTime} seconds \n and guessed wrong ${wrongGuessTally} times`);
+        // alert(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
         finalTime();
       }
 
@@ -141,33 +134,4 @@ $(() => {
   }
 
 
-// level2 =
-//    $tiles.on('click',(e)=>{
-//      const guess2 = $(e.target).attr('id');
-//
-//      if (guess2 === mustContainValue) {
-//        alert(`Well done this is ${mustContainValue}`);
-//        $tiles.remove();
-//        appendNDivsToDisplay(16);
-//        level3;
-//      } else {
-//        alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
-//      }
-//    });
-//   }
-  // if (level === 3){
-  //
-  //   level3 =
-  //  $tiles.on('click',(e)=>{
-  //    const guess3 = $(e.target).attr('id');
-  //
-  //    if (guess3 === mustContainValue) {
-  //      alert(`Well done this is ${mustContainValue}`);
-  //      alert('Game complete');
-  //      level3;
-  //    } else {
-  //      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
-  //    }
-  //  });
-  // }
 });
