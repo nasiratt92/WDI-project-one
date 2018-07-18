@@ -1,6 +1,7 @@
 $(() => {
   const colors = ['tan', 'teal', 'coral', 'peru', 'tomato', 'honeydew', 'sienna',
-    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue', 'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
+    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue',
+    'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
 
@@ -115,27 +116,27 @@ $(() => {
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
         createLevel(1, 4);
-      } else if (level === 2 ) {
+      } else if (level <3 ) {
         alert(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
-        level+=1;
+        level = parseFloat((level + 0.25).toFixed(2));
         createLevel(3, 9);
-      } else if (level === 3) {
+      } else if (level <4) {
         alert(`Well done this is ${mustContainValue}`);
         $tiles.remove();
-        level+=1;
+        level = parseFloat((level + 0.25).toFixed(2));
         createLevel(3, 16);
       } else if (level === 4) {
         $tiles.remove();
-        $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
-        $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
-        // alert(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
+        // $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
+        // $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
+        alert(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
         finalTime();
       }
 
     } else {
-      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate try again`);
+      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
       wrongGuessTally+=1;
     }
   }
