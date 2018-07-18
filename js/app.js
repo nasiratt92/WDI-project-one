@@ -8,6 +8,8 @@ $(() => {
   let mustContainValue;
   let level = 1;
   let wrongGuessTally = 0;
+  let levelInstanceTally = 0;
+  let timerID = null;
   let $tiles;
 
   const $timer = $('#timer');
@@ -91,7 +93,7 @@ $(() => {
     });
   }
   //
-  //
+  //This section creates a level //////////////////////////////////////////////////////////////////
 
   function createLevel(levelNumber, numberOfSquares) {
     const level = appendNDivsToDisplay(numberOfSquares);
@@ -100,6 +102,34 @@ $(() => {
   }
 
   createLevel(1, 4); // this needs to run at the start
+
+  ///////////////////////////////////////////////////////////////////////////
+
+
+  ////////This section is to create a 3 second timeout feature////////////
+//
+// createLevel(4,1) {
+//   timerID=setTimeOut(()
+// 300)
+// }
+
+  function showMessage(message) {
+    console.log(message);
+    $('.message').text(message);
+    $('.message-container').addClass('fade');
+    setTimeout(() => {
+      $('.message-container').removeClass('fade');
+    }, 3000);
+  }
+
+
+
+
+
+  ////////////////////////////////////////////////////////////////////
+
+
+
 
 
   //this section to get diferent alerts and level change on user selection////
@@ -111,19 +141,20 @@ $(() => {
       console.log('LEVEL: ', level);
 
       if (level <2 ) {
-        alert(`Well done this is ${mustContainValue}`);
+        showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
+        levelInstanceTally+=1;
         createLevel(1, 4);
       } else if (level <3 ) {
-        alert(`Well done this is ${mustContainValue}`);
+        showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
         createLevel(3, 9);
       } else if (level <4) {
-        alert(`Well done this is ${mustContainValue}`);
+        showMessage(`Well done this is ${mustContainValue}`);
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
         createLevel(3, 16);
@@ -131,12 +162,13 @@ $(() => {
         $tiles.remove();
         // $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
         // $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
-        alert(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
+        showMessage(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
         finalTime();
+        $display.append('<div style="font-size: 180px; background-color: snow; height: 190px; width: 190px;">😁</div>');
       }
 
     } else {
-      alert(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
+      showMessage(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
       wrongGuessTally+=1;
     }
   }

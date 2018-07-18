@@ -1,3 +1,7 @@
+h2 {
+  color: tan;
+  align-items: center;
+}
 .squares{
   height: 400px;
   width: 400px;
@@ -15,20 +19,37 @@
     overflow:hidden;
     border-radius:10%;
 }
-#purple{
-  background: purple;
-}
-#red{
-  background: red;
-}#green{
-  background: green;
-}#tan{
-  background: tan;
-
-}
   /* animation:bounce 3s linear infinite; */
+  #timer{
+    border: 1px solid teal;
+    height: 90px;
+    width: 190px;
+    background-color: lightgrey;
+    color: snow;
+  }
 
 p {
   font-size: 20px;
   font-style: normal;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  background-color: white;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: teal;
+}
+
+.fade {
+  animation: appearAndFade 3s linear;
+  z-index: 2;
 }
