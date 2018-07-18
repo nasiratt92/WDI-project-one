@@ -1,6 +1,6 @@
 $(() => {
   const colors = ['tan', 'teal', 'coral', 'peru', 'tomato', 'honeydew', 'sienna',
-    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue', 'goldenrod'];
+    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue', 'goldenrod','peachpuff', 'papayawhip', 'moccasin' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
 
@@ -47,7 +47,7 @@ $(() => {
       pickedColors = pickRandomColors(colors, n);
       //  Display picked colors for a little while
       //only way is to run  intervals before the loop
-      console.log('picking...', pickedColors);
+      // console.log('picking...', pickedColors);
     }
     return pickedColors;
 
@@ -66,7 +66,7 @@ $(() => {
   }
 
   const finalTime = function(){
-    if (level===3) {
+    if (level===4) {
       console.log('stop!');
       clearInterval(timerInterval);
       return startTime;
@@ -93,10 +93,8 @@ $(() => {
   //
 
   function createLevel(levelNumber, numberOfSquares) {
-    console.log('createLevel');
     const level = appendNDivsToDisplay(numberOfSquares);
     $tiles = $('.tile');
-    console.log($tiles);
     $tiles.on('click', handleTileClick);
   }
 
@@ -109,17 +107,26 @@ $(() => {
 
     if (guess === mustContainValue) {
 
-      if (level === 1) {
+      console.log('LEVEL: ', level);
+
+      if (level <2 ) {
         alert(`Well done this is ${mustContainValue}`);
+        // clearTimeout(timerID);
+        $tiles.remove();
+        level = parseFloat((level + 0.25).toFixed(2));
+        createLevel(1, 4);
+      } else if (level === 2 ) {
+        alert(`Well done this is ${mustContainValue}`);
+        // clearTimeout(timerID);
         $tiles.remove();
         level+=1;
-        createLevel(2, 9);
-      } else if (level === 2) {
+        createLevel(3, 9);
+      } else if (level === 3) {
         alert(`Well done this is ${mustContainValue}`);
         $tiles.remove();
         level+=1;
         createLevel(3, 16);
-      } else if (level === 3) {
+      } else if (level === 4) {
         $tiles.remove();
         $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
         $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
