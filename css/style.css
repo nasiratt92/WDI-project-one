@@ -1,22 +1,65 @@
-h2 {
-  color: tan;
+.heading {
+  color:black;
   align-items: center;
+  float: none;
+  background-color: rgba(255,255,255,0.7);
 }
 body{
   background-image: url("../background_image2.jpg"); /* Relative to the CSS folder! */
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
 }
-
+/* below is a font awesome in use with transient colors and shake animation */
+.fas{
+  font-size: 150px;
+  background: -webkit-linear-gradient(papayawhip, peachpuff, goldenrod);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bounce 2s infinite;
+}
 .start-screen {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* flex-direction: column; */
+  align-items: stretch;
+  justify-content: space-between;
   width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
+  left: 0;
   background-color: white;
 }
+/* .startImage{
+  padding: 20px;
+  height: 20%;
+  width:20%;
+  border-radius:50%;
+    overflow:hidden;
+    border-radius:60%;
+     */
+.disco-left{
+  background-image: url('../images/colourful-disco-dancer-5.jpg');
+  width: 20%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: imageToggle 4s infinite;
 
+}
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.disco-right{
+  background-image: url('../images/colourful-disco-dancer-6.jpg');
+  width: 20%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: imageToggle 2s infinite;
+}
 .squares{
   height: 400px;
   width: 400px;
@@ -24,7 +67,9 @@ body{
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  background-color: white;
+background: -webkit-linear-gradient(peachpuff, goldenrod);
+bottom: 0;
+right: 0;
 }
 
 .tile {
@@ -35,18 +80,26 @@ body{
     overflow:hidden;
     border-radius:10%;
 }
+.shake {
+  animation: bounce 2s linear;
+}
+.tile:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: bounce 0.5s linear;
+}
   /* animation:bounce 3s linear infinite; */
   #timer{
     border: 1px solid teal;
     height: 90px;
     width: 190px;
     background-color: lightgrey;
-    color: snow;
+    color: black;
   }
 
 p {
   font-size: 20px;
   font-style: normal;
+  background-color: white;
 }
 
 .message-container {

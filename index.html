@@ -5,27 +5,35 @@
     <title>Color Master</title>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   </head>
   <body>
 
     <section class="start-screen">
-      <div>
+      <div class="disco-left"></div>
+        <!-- <img src="images/colourful-disco-dancer-5.jpg" alt="text"> -->
+        <div class="center">
+          <!-- <img class="startImage" src="https://static.vecteezy.com/system/resources/previews/000/208/395/non_2x/vector-retro-rubik-s-cube-illustration.jpg" alt="runic cube image"> -->
+          <i class="fas fa-crown"></i>
         <p>Are you ready to be crowned </p>
-        <h3>the colour master 3000</h3>
+        <h3>the #### master 3000</h3>
         <button type="button" id="start-button">Start!</button>
       </div>
+      <div class="disco-right"></div>
+        <!-- <img src="images/colourful-disco-dancer-6.jpg" alt="text"> -->
     </section>
     <header>
-      <h2>The #### master 6000</h2>
+      <p class="heading">The #### master 6000</p>
     </header>
 
 
     <div class="sideBarLeft">
       <div class="clock">
         <time id="timer"> 🤗 Good Luck 🤗 </time>
-
+<div class="wrongGuessTally"></div>
       </div>
 
     </div>
@@ -54,8 +62,8 @@
 
 
     <footer>
-    <p>Name:</p>
-    <p id="choosen">purple</p>
+    <p>Name: <span id="choosen">purple</span></p>
+
     </footer>
 
   </body>

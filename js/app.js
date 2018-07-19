@@ -180,7 +180,7 @@ $(() => {
         showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
-        level = parseFloat((level + 0.5).toFixed(2));
+        level = parseFloat((level + 0.25).toFixed(2));
       //took out instances to make test easier changing level + 0.25 to 0.5
         levelInstanceTally+=1;
         playSound('sounds/super-mario-bros_hxyb1pX.mp3');
@@ -189,7 +189,7 @@ $(() => {
         showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
-        level = parseFloat((level + 0.5).toFixed(2));
+        level = parseFloat((level + 0.25).toFixed(2));
         //took out instances to make test easier changing level + 0.25 to 0.5
         playSound('sounds/smb_coin.wav');
         createLevel(3, 9);
@@ -197,7 +197,7 @@ $(() => {
         showMessage(`Well done this is ${mustContainValue}`);
         playSound('sounds/smb_coin.wav');
         $tiles.remove();
-        level = parseFloat((level + 0.5).toFixed(2));
+        level = parseFloat((level + 0.25).toFixed(2));
         //took out instances to make test easier changing level + 0.25 to 0.5
         createLevel(3, 16);
       } else if (level === 4) {
@@ -209,7 +209,7 @@ $(() => {
         finalTime();
         gamecomplete();
         // $display.append(`<h1>Congratulations you win the game \n Your time is ${startTime} seconds</h1>`);
-        backgroundMusic.volume = 0.15;
+        backgroundMusic.volume = 0.1;
       }
 
     } else {
@@ -220,7 +220,7 @@ $(() => {
     setInterval(() => {
       backgroundMusic.volume = 1;
     }, 6000);
-    $display.append(`<h1>Congratulations you win the game \n Your time is ${startTime} seconds</h1>`);
+    $display.append(`<h1>Congratulations you win the game \n your time is ${startTime} seconds</h1>`);
     $display.append('<iframe src="https://giphy.com/embed/ZJB5EPInvETQY" width="100%" height="80%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disco-ZJB5EPInvETQY"></a></p>');
 
   }
