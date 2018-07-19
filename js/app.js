@@ -1,6 +1,6 @@
 $(() => {
   const colors = ['tan', 'teal', 'coral', 'peru', 'tomato', 'honeydew', 'sienna',
-    'ordchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue',
+    'orchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue',
     'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
@@ -39,7 +39,7 @@ $(() => {
 
   // ///////////////////////////////////////////////////////////////////////////////////
   //
-  //
+
   //
   // /////////This section is to make sure the tiles contain the answer value///
   const pickColorsUntilContains = (colors, n, answer) => {
@@ -119,7 +119,7 @@ $(() => {
     $('.message-container').addClass('fade');
     setTimeout(() => {
       $('.message-container').removeClass('fade');
-    }, 3000);
+    }, 1500);
   }
 
 
@@ -128,17 +128,40 @@ $(() => {
 
   ////////////////////////////////////////////////////////////////////
   function playSound(soundFile) {
-    const incorrectSound = new Audio();
-    incorrectSound.src = soundFile;
-    incorrectSound.play();
+    const soundEffect = new Audio();
+    soundEffect.src = soundFile;
+    soundEffect.play();
+  }
+
+  function stageChangeSound(){
+    if (level === 2){
+      playSound('sounds/smb2_grow.wav');
+    } else if (level === 3) {
+      playSound('sounds/smb2_grow.wav');
+    } else if (level === 4) {
+      playSound('sounds/smb_stage_clear.wav');
+    }
   }
 
 
+  // stageChangeSound('sounds/sounds/smb2_grow.wav',level);
+  // stageChangeSound('sounds/sounds/smb2_grow.wav',level);
+  // stageChangeSound('sounds/sounds/smb_stage_clear.wav',level);
+
+
+  ////////////////
   function handleIncorrectGuess(mustContainValue, guess) {
     playSound('sounds/the-simpsons-nelsons-haha.mp3');
     showMessage(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
     wrongGuessTally+=1;
   }
+
+  $('#start-button').on('click', e => {
+    playSound('sounds/Beach_Disco.mp3');
+    // Hide the start screen
+    $('.start-screen').css('visibility', 'hidden');
+  });
+
 
   //this section to get diferent alerts and level change on user selection////
   function handleTileClick(e) {
@@ -146,6 +169,7 @@ $(() => {
 
     if (guess === mustContainValue) {
 
+      stageChangeSound(); // play the level up sound (maybe)
       console.log('LEVEL: ', level);
 
       if (level <2 ) {
@@ -154,20 +178,24 @@ $(() => {
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
         levelInstanceTally+=1;
+        playSound('sounds/super-mario-bros_hxyb1pX.mp3');
         createLevel(1, 4);
       } else if (level <3 ) {
         showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
+        playSound('sounds/smb_coin.wav');
         createLevel(3, 9);
       } else if (level <4) {
         showMessage(`Well done this is ${mustContainValue}`);
+        playSound('sounds/smb_coin.wav');
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
         createLevel(3, 16);
       } else if (level === 4) {
         $tiles.remove();
+        playSound('sounds/smb_coin.wav');
         // $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
         // $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
         showMessage(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
