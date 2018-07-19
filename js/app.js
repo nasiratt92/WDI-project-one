@@ -4,6 +4,7 @@ $(() => {
     'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
+  const $displayLevel = $('.level');
 
   let mustContainValue;
   let level = 1;
@@ -11,6 +12,7 @@ $(() => {
   let levelInstanceTally = 0;
   let timerID = null;
   let $tiles;
+  let backgroundMusic;
 
   const $timer = $('#timer');
   let finishTime;
@@ -131,6 +133,7 @@ $(() => {
     const soundEffect = new Audio();
     soundEffect.src = soundFile;
     soundEffect.play();
+    return soundEffect;
   }
 
   function stageChangeSound(){
@@ -157,7 +160,7 @@ $(() => {
   }
 
   $('#start-button').on('click', e => {
-    playSound('sounds/Beach_Disco.mp3');
+    backgroundMusic = playSound('sounds/Beach_Disco.mp3');
     // Hide the start screen
     $('.start-screen').css('visibility', 'hidden');
   });
@@ -166,6 +169,7 @@ $(() => {
   //this section to get diferent alerts and level change on user selection////
   function handleTileClick(e) {
     const guess = $(e.target).attr('id');
+    backgroundMusic.volume = 0.15;
 
     if (guess === mustContainValue) {
 
@@ -176,7 +180,8 @@ $(() => {
         showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
-        level = parseFloat((level + 0.25).toFixed(2));
+        level = parseFloat((level + 0.5).toFixed(2));
+      //took out instances to make test easier changing level + 0.25 to 0.5
         levelInstanceTally+=1;
         playSound('sounds/super-mario-bros_hxyb1pX.mp3');
         createLevel(1, 4);
@@ -184,29 +189,43 @@ $(() => {
         showMessage(`Well done this is ${mustContainValue}`);
         // clearTimeout(timerID);
         $tiles.remove();
-        level = parseFloat((level + 0.25).toFixed(2));
+        level = parseFloat((level + 0.5).toFixed(2));
+        //took out instances to make test easier changing level + 0.25 to 0.5
         playSound('sounds/smb_coin.wav');
         createLevel(3, 9);
       } else if (level <4) {
         showMessage(`Well done this is ${mustContainValue}`);
         playSound('sounds/smb_coin.wav');
         $tiles.remove();
-        level = parseFloat((level + 0.25).toFixed(2));
+        level = parseFloat((level + 0.5).toFixed(2));
+        //took out instances to make test easier changing level + 0.25 to 0.5
         createLevel(3, 16);
       } else if (level === 4) {
         $tiles.remove();
         playSound('sounds/smb_coin.wav');
         // $display.append(`<h3>Congratulations you win the game \n Your time is ${startTime} seconds</h3>`);
         // $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
-        showMessage(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
+        // showMessage(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
         finalTime();
-        $display.append('<div style="font-size: 180px; background-color: snow; height: 190px; width: 190px;">😁</div>');
+        $display.append('<img src="images/silhouettes.jpg" alt="Smiley face" width="100%" height="100%">');
+        gamecomplete();
       }
 
     } else {
       handleIncorrectGuess(mustContainValue, guess);
     }
   }
+  function gamecomplete(){
+    setInterval(() => {
+      backgroundMusic.volume = 1;
+    }, 6000);
+    $display.append(`<h1>Congratulations you win the game \n Your time is ${startTime} seconds</h1>`);
 
+  }
 
+////////////////////////////status bar ////////////////
+function updateLevel(){}
+$displayLevel.append
+
+//////////////////////////////////////////////
 });
