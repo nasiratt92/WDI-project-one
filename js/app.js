@@ -207,8 +207,9 @@ $(() => {
         // $display.append(`<h3> and guessed wrong ${wrongGuessTally} times</h3>`);
         // showMessage(`Congratulations you win game complete \n Your time:     ${startTime} seconds \n Guessed wrong:     ${wrongGuessTally} times`);
         finalTime();
-        $display.append('<img src="images/silhouettes.jpg" alt="Smiley face" width="100%" height="100%">');
         gamecomplete();
+        // $display.append(`<h1>Congratulations you win the game \n Your time is ${startTime} seconds</h1>`);
+        backgroundMusic.volume = 0.15;
       }
 
     } else {
@@ -220,12 +221,13 @@ $(() => {
       backgroundMusic.volume = 1;
     }, 6000);
     $display.append(`<h1>Congratulations you win the game \n Your time is ${startTime} seconds</h1>`);
+    $display.append('<iframe src="https://giphy.com/embed/ZJB5EPInvETQY" width="100%" height="80%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disco-ZJB5EPInvETQY"></a></p>');
 
   }
 
 ////////////////////////////status bar ////////////////
-function updateLevel(){}
-$displayLevel.append
+// function updateLevel(){}
+// $displayLevel.append;
 
 //////////////////////////////////////////////
 });
