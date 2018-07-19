@@ -2,17 +2,20 @@ h2 {
   color: tan;
   align-items: center;
 }
+body{
+  background-image: url("../background_image2.jpg"); /* Relative to the CSS folder! */
+}
 .squares{
   height: 400px;
   width: 400px;
-  border: 5px solid indigo;
+  border: 5px solid teal;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
 }
 
 .tile {
-  border: 5px dashed indigo;
+  border: 2px dashed indigo;
   height: 190px;
   width:190px;
   border-radius:50%;

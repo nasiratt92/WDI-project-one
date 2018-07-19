@@ -107,11 +107,11 @@ $(() => {
 
 
   ////////This section is to create a 3 second timeout feature////////////
-//
-// createLevel(4,1) {
-//   timerID=setTimeOut(()
-// 300)
-// }
+  //
+  // createLevel(4,1) {
+  //   timerID=setTimeOut(()
+  // 300)
+  // }
 
   function showMessage(message) {
     console.log(message);
@@ -127,10 +127,18 @@ $(() => {
 
 
   ////////////////////////////////////////////////////////////////////
+  function playSound(soundFile) {
+    const incorrectSound = new Audio();
+    incorrectSound.src = soundFile;
+    incorrectSound.play();
+  }
 
 
-
-
+  function handleIncorrectGuess(mustContainValue, guess) {
+    playSound('sounds/the-simpsons-nelsons-haha.mp3');
+    showMessage(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
+    wrongGuessTally+=1;
+  }
 
   //this section to get diferent alerts and level change on user selection////
   function handleTileClick(e) {
@@ -168,8 +176,7 @@ $(() => {
       }
 
     } else {
-      showMessage(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
-      wrongGuessTally+=1;
+      handleIncorrectGuess(mustContainValue, guess);
     }
   }
 
