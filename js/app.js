@@ -10,11 +10,14 @@ $(() => {
 
   let mustContainValue;
   let level = 4;
-  let wrongGuessTally = 0;
-  let levelInstanceTally = 0;
+  //Would use the below for my wrong guess feature 
+  // let wrongGuessTally = 0;
+  // let levelInstanceTally = 0;
   let timerID = null;
   let $tiles;
   let backgroundMusic;
+
+  let timerInterval;
 
   const $timer = $('#timer');
   let finishTime;
@@ -59,13 +62,18 @@ $(() => {
     return pickedColors;
 
   };
+  /////////////////////start button/////////////////////////////////
+  $('#start-button').on('click', e => {
+    backgroundMusic = playSound('sounds/Beach_Disco.mp3');
+    // Hide the start screen
+    $('.start-screen').css('visibility', 'hidden');
+    //This section is to create a timer for the overall gameplay which is used
+    timerInterval = setInterval(increaseTimes, 1000);
+  });
+  ///////////////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////////////////////////
-  //This section is to create a timer for the overall gameplay which is used
-  //
-  //
-  let startTime = 0;
 
-  const timerInterval = setInterval(increaseTimes, 1000);
+
 
   function increaseTimes(){
     startTime+=1;
@@ -79,6 +87,10 @@ $(() => {
       return startTime;
     }
   };
+  //
+  //
+  let startTime = 0;
+
 
 
   //
@@ -163,13 +175,6 @@ $(() => {
     showMessage(`Ha Ha ! Gotcha this is ${guess} \n `);
     wrongGuessTally+=1;
   }
-/////////////////////start button/////////////////////////////////
-  $('#start-button').on('click', e => {
-    backgroundMusic = playSound('sounds/Beach_Disco.mp3');
-    // Hide the start screen
-    $('.start-screen').css('visibility', 'hidden');
-  });
-  ///////////////////////////////////////////////////////////////
 
 
 
