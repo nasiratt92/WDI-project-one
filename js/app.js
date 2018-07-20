@@ -9,10 +9,10 @@ $(() => {
 
 
   let mustContainValue;
-  let level = 4;
-  //Would use the below for my wrong guess feature 
-  // let wrongGuessTally = 0;
-  // let levelInstanceTally = 0;
+  let level = 1;
+  //Would use the below for my wrong guess feature
+  let wrongGuessTally = 0;
+  let levelInstanceTally = 0;
   let timerID = null;
   let $tiles;
   let backgroundMusic;
