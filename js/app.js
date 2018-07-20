@@ -143,6 +143,7 @@ $(() => {
       playSound('sounds/smb2_grow.wav');
     } else if (level === 4) {
       playSound('sounds/smb_stage_clear.wav');
+      $display.append(`<h1>Congratulations you win the game \n your time is ${startTime} seconds</h1>`);
     }
   }
 
@@ -155,7 +156,7 @@ $(() => {
   ////////////////
   function handleIncorrectGuess(mustContainValue, guess) {
     playSound('sounds/the-simpsons-nelsons-haha.mp3');
-    showMessage(`Ha Ha ! Gotcha this is not ${mustContainValue} mate \n this is ${guess} \n try again`);
+    showMessage(`Ha Ha ! Gotcha this is ${guess} \n `);
     wrongGuessTally+=1;
   }
 
@@ -220,7 +221,6 @@ $(() => {
     setInterval(() => {
       backgroundMusic.volume = 1;
     }, 6000);
-    $display.append(`<h1>Congratulations you win the game \n your time is ${startTime} seconds</h1>`);
     $display.append('<iframe src="https://giphy.com/embed/ZJB5EPInvETQY" width="100%" height="80%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disco-ZJB5EPInvETQY"></a></p>');
 
   }
