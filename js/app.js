@@ -4,10 +4,12 @@ $(() => {
     'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
   const $display = $('.squares');
   const $answer = $('#choosen');
+  const $levelNumber = $('#levelNumber');
   const $displayLevel = $('.level');
 
+
   let mustContainValue;
-  let level = 1;
+  let level = 4;
   let wrongGuessTally = 0;
   let levelInstanceTally = 0;
   let timerID = null;
@@ -139,11 +141,13 @@ $(() => {
   function stageChangeSound(){
     if (level === 2){
       playSound('sounds/smb2_grow.wav');
+      $levelNumber.html(2);
     } else if (level === 3) {
       playSound('sounds/smb2_grow.wav');
+      $levelNumber.html(3);
     } else if (level === 4) {
       playSound('sounds/smb_stage_clear.wav');
-      $display.append(`<h1>Congratulations you win the game \n your time is ${startTime} seconds</h1>`);
+      $display.append(`<h1 class='win-text'>Congratulations you win the game \n your time is ${startTime} seconds</h1>`);
     }
   }
 
@@ -159,12 +163,14 @@ $(() => {
     showMessage(`Ha Ha ! Gotcha this is ${guess} \n `);
     wrongGuessTally+=1;
   }
-
+/////////////////////start button/////////////////////////////////
   $('#start-button').on('click', e => {
     backgroundMusic = playSound('sounds/Beach_Disco.mp3');
     // Hide the start screen
     $('.start-screen').css('visibility', 'hidden');
   });
+  ///////////////////////////////////////////////////////////////
+
 
 
   //this section to get diferent alerts and level change on user selection////
@@ -218,10 +224,18 @@ $(() => {
     }
   }
   function gamecomplete(){
-    setInterval(() => {
+    setTimeout(() => {
       backgroundMusic.volume = 1;
+      // $display.append('<iframe src="https://giphy.com/embed/ZJB5EPInvETQY" width="100%" height="80%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disco-ZJB5EPInvETQY"></a></p>');
+      // $display.append('<div class="gif"><img src="https://i.giphy.com/ZJB5EPInvETQY.gif" alt="disco stu dances"><div>');
+      $display.append('<img class="gif" src="https://i.giphy.com/ZJB5EPInvETQY.gif" alt="disco stu dances">');
+      $display.append('<button type="button" id="reload-button" style="height:17px;">Play Again!</button>');
+      /////////////////////////Reload Button/////////////////////////
+      $('#reload-button').on('click', e => {
+        location.reload();
+      });
+      /////////////////////////////////////////////////////
     }, 6000);
-    $display.append('<iframe src="https://giphy.com/embed/ZJB5EPInvETQY" width="100%" height="80%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disco-ZJB5EPInvETQY"></a></p>');
 
   }
 

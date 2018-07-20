@@ -70,6 +70,7 @@ body{
 background: -webkit-linear-gradient(peachpuff, goldenrod);
 bottom: 0;
 right: 0;
+justify-content: center;
 }
 
 .tile {
@@ -121,4 +122,17 @@ p {
 .fade {
   animation: appearAndFade 1.5s linear;
   z-index: 2;
+}
+
+.win-text {
+  z-index: 2;
+  color: white;
+  /* position: absolute;
+  width: inherit; */
+}
+
+.gif {
+  position: absolute;
+  width: inherit;
+  z-index: 1; /* What goes top of what! */
 }
