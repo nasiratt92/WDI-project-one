@@ -2,7 +2,7 @@ $(() => {
   console.log('Version 0.1');
   const colors = ['tan', 'teal', 'coral', 'peru', 'tomato', 'honeydew', 'sienna',
     'orchid', 'ivory', 'crimson', 'azure', 'indigo', 'purple', 'dodgerblue',
-    'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen' ];
+    'goldenrod','peachpuff', 'papayawhip', 'moccasin', 'thistle','wheat','snow', 'linen', 'gainsboro ];
   const $display = $('.squares');
   const $answer = $('#choosen');
   const $levelNumber = $('#levelNumber');
