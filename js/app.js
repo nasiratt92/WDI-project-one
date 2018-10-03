@@ -194,7 +194,7 @@ $(() => {
         // clearTimeout(timerID);
         $tiles.remove();
         level = parseFloat((level + 0.25).toFixed(2));
-      //took out instances to make test easier changing level + 0.25 to 0.5
+        //took out instances to make test easier changing level + 0.25 to 0.5
         levelInstanceTally+=1;
         playSound('sounds/super-mario-bros_hxyb1pX.mp3');
         createLevel(1, 4);
