@@ -8,7 +8,13 @@ The colour names have been chosen specifically on the basis that do not give awa
 
 [Demo](https://nasiratt92.github.io/WDI-project-one/)
 
-### Requirements
+### Technologies used
+* HTML5
+* CSS3
+* JavaScript
+* jQuery
+
+### Instructions to play
 
 ![picture alt](https://i.imgur.com/mS9zxlE.png "Level 1")
 
@@ -39,7 +45,11 @@ Your game should:
 * Use semantic markup for HTML and CSS (adhere to best practices)
 
 ***
+### Challenges
+As this was my first ever JavaScript endeavour, I found the project as a whole a challenge. I had to adopt to learn JavaScript coding skills within the code (e.g. declaring global variable and functions) and learn coder's skills outside of the code (e.g. mind mapping coding solutions and pre planning code to be written).
 
+
+***
 ### Favourite feature
 
 As much as I enjoyed going through my many code challenges throughout this project (like adding Simpsons nelson sound or Discos Stue's 80's dance off gif), my favourite achievement has to be deployment of Super Mario sounds throughout the gameplay. This was achieved through two blocks of code in the JavaScript file.
@@ -120,6 +130,7 @@ function handleTileClick(e) {
   }
 }
 ```
+
 
 ## Future features
 There are plenty of features which given the time I would love to add to this game such as
