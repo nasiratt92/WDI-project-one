@@ -1,8 +1,28 @@
 # WDI-project-one
+
+***
 ## Colour Master 3000
 ![picture alt](https://i.imgur.com/ARNmli8.png "Title is optional")
-### introduction
-A simple game created using vanilla javascript and Jquery to help web developers remember funky and *cool* placeholder colour names when creating web pages. Injecting bytes of fun into coding and laughter when teaching coding.
+## Project brief
+
+Your game should:
+
+* Render a game in the browser
+
+* Design logic for winning & visually display which player won
+
+* Include separate HTML / CSS / JavaScript files
+
+* Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
+
+* Use Javascript or jQuery for DOM manipulation
+
+* Deploy your game online, where the rest of the world can access it
+
+* Use semantic markup for HTML and CSS (adhere to best practices)
+
+### Introduction
+A simple game created using vanilla Javascript and jQuery to help web developers remember funky and *cool* placeholder colour names when creating web pages. Injecting bytes of fun into coding and laughter when teaching coding.
 
 The colour names have been chosen specifically on the basis that do not give away the colour name in the name and are very short or very intriguing, making this game a memorisation tool that is fun and useful.
 
@@ -26,28 +46,8 @@ There are three levels to clear before game is completed and you are given your 
 ### bonus
 As a bonus see if you can complete the game with less than 5 wrong guesses.
 ___
-## Project brief
-
-Your game should:
-
-* Render a game in the browser
-
-* Design logic for winning & visually display which player won
-
-* Include separate HTML / CSS / JavaScript files
-
-* Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
-
-* Use Javascript or jQuery for DOM manipulation
-
-* Deploy your game online, where the rest of the world can access it
-
-* Use semantic markup for HTML and CSS (adhere to best practices)
-
-***
 ### Challenges
 As this was my first ever JavaScript endeavour, I found the project as a whole a challenge. I had to adopt to learn JavaScript coding skills within the code (e.g. declaring global variable and functions) and learn coder's skills outside of the code (e.g. mind mapping coding solutions and pre planning code to be written).
-
 
 ***
 ### Favourite feature
